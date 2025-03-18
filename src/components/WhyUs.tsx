@@ -78,7 +78,7 @@ const WhyUs = () => {
     <section 
       id="why-us" 
       ref={sectionRef}
-      className="py-24 md:py-32 bg-gradient-to-b from-[#FBFFE4] to-[#DFD0B8]"
+      className="py-24 md:py-32 bg-gradient-to-b from-white to-[#E3F2FD]"
     >
       <div className="container max-w-7xl mx-auto px-4 md:px-6">
         <div className="text-center mb-16">
@@ -90,7 +90,7 @@ const WhyUs = () => {
               visible: { opacity: 1 }
             }}
             transition={{ duration: 0.5 }}
-            className="inline-block px-3 py-1 mb-4 text-xs font-medium bg-secondary rounded-full text-foreground/70"
+            className="inline-block px-3 py-1 mb-4 text-xs font-medium bg-[#E3F2FD] rounded-full text-[#1E67A8]"
           >
             Why Choose Us
           </motion.div>
@@ -131,13 +131,14 @@ const WhyUs = () => {
           {features.map((feature, index) => (
             <motion.div
               key={index}
-              className="h-80 rounded-xl p-6 lg:p-8 flex flex-col items-start shadow shadow-black bg-white"
+              className="h-80 rounded-xl p-6 lg:p-8 flex flex-col items-start shadow-lg shadow-[#1E67A8]/10 bg-white hover:shadow-xl hover:shadow-[#1E67A8]/20 transition-shadow duration-300"
               variants={itemVariants}
+              whileHover={{ y: -5, transition: { duration: 0.3 } }}
             >
-              <div className="p-3 rounded-lg bg-primary/10 text-primary mb-5">
+              <div className="p-3 rounded-lg bg-[#E3F2FD] text-[#1E67A8] mb-5">
                 {feature.icon}
               </div>
-              <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
+              <h3 className="text-xl font-bold mb-3 text-[#153448]">{feature.title}</h3>
               <p className="text-muted-foreground">{feature.description}</p>
             </motion.div>
           ))}

@@ -3,9 +3,11 @@ import React, { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
+  const isMobile = useIsMobile();
 
   // Parallax effect on scroll
   useEffect(() => {
@@ -42,10 +44,10 @@ const Hero = () => {
           alt="Medical background"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-black opacity-50"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-[#1E67A8]/70 to-[#071E3F]/70"></div>
       </div>
       
-      <div className="container max-w-7xl mx-auto px-4 md:px-6 flex flex-col md:flex-row items-center gap-12 md:gap-8">
+      <div className="container mx-auto px-4 md:px-6 flex flex-col md:flex-row items-center gap-12 md:gap-8">
         {/* Hero Content */}
         <motion.div 
           className="hero-content flex-1 text-center md:text-left space-y-6 pt-16 md:pt-20 text-white"
@@ -62,7 +64,7 @@ const Hero = () => {
             International Medical Tourism
           </motion.div>
           
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold leading-tight tracking-tight">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight tracking-tight">
             <motion.span
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -75,7 +77,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.6 }}
-              className="block text-primary"
+              className="block text-[#64B5F6]"
             >
               Our Priority
             </motion.span>
@@ -97,7 +99,7 @@ const Hero = () => {
             transition={{ duration: 0.7, delay: 1.2 }}
           >
             <Link to="/consultation">
-              <Button size="lg" className="rounded-full px-8 text-base h-12 shadow-lg shadow-primary/20">
+              <Button size="lg" className="rounded-full px-8 text-base h-12 shadow-lg shadow-primary/20 bg-[#1E67A8] hover:bg-[#1A5A91]">
                 Book Consultation
               </Button>
             </Link>
@@ -114,9 +116,9 @@ const Hero = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
         >
-          <div className="relative z-0">
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-primary/20 to-white/20 rounded-3xl blur-xl opacity-70"></div>
-            <div className="glass-panel rounded-3xl overflow-hidden">
+          <div className="relative z-0 mx-auto max-w-[450px]">
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-[#64B5F6]/20 to-white/20 rounded-3xl blur-xl opacity-70"></div>
+            <div className="bg-white/10 backdrop-blur-lg border border-white/20 shadow-lg rounded-3xl overflow-hidden">
               <video 
                 src="https://player.vimeo.com/external/308040879.sd.mp4?s=2ec7fe28d23e4f7fc9b6bf262136c742fd386a54&profile_id=164&oauth2_token_id=57447761"
                 controls
@@ -130,21 +132,23 @@ const Hero = () => {
             </div>
           </div>
           
-          {/* Floating Elements */}
-          <motion.div 
-            className="absolute -bottom-6 -left-6 p-4 glass-panel rounded-xl shadow-lg max-w-[180px] bg-white/10 backdrop-blur-md"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 1.4 }}
-          >
-            <p className="text-sm font-medium text-white">100+ Happy Patients</p>
-            <div className="flex -space-x-2 mt-2">
-              <div className="w-8 h-8 rounded-full bg-primary"></div>
-              <div className="w-8 h-8 rounded-full bg-accent"></div>
-              <div className="w-8 h-8 rounded-full bg-secondary"></div>
-              <div className="w-8 h-8 rounded-full bg-white text-xs flex items-center justify-center">+97</div>
-            </div>
-          </motion.div>
+          {/* Floating Elements - Only show on desktop */}
+          {!isMobile && (
+            <motion.div 
+              className="absolute -bottom-6 -left-6 p-4 bg-white/10 backdrop-blur-md rounded-xl shadow-lg max-w-[180px]"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 1.4 }}
+            >
+              <p className="text-sm font-medium text-white">100+ Happy Patients</p>
+              <div className="flex -space-x-2 mt-2">
+                <div className="w-8 h-8 rounded-full bg-[#64B5F6]"></div>
+                <div className="w-8 h-8 rounded-full bg-[#1E67A8]"></div>
+                <div className="w-8 h-8 rounded-full bg-[#90CAF9]"></div>
+                <div className="w-8 h-8 rounded-full bg-white text-xs flex items-center justify-center">+97</div>
+              </div>
+            </motion.div>
+          )}
         </motion.div>
       </div>
       

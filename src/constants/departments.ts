@@ -46,6 +46,6 @@ export const departments = [
     id: 'gynecology',
     name: 'Gynecology',
     icon: 'https://cdn-icons-png.flaticon.com/512/2382/2382513.png',
-    description: 'Women's health services including reproductive and surgical treatments.'
+    description: 'Women\'s health services including reproductive and surgical treatments.'
   }
 ];
