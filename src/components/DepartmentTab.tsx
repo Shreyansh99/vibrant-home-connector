@@ -25,7 +25,7 @@ const departments = [
     name: 'Neurology',
     description: 'Specialized care for conditions affecting the nervous system.',
     image: 'https://images.unsplash.com/photo-1559757175-5700dde675bc',
-    features: ['Brain Surgery', 'Stroke Management', 'Epilepsy Treatment', 'Parkinson's Care']
+    features: ['Brain Surgery', 'Stroke Management', 'Epilepsy Treatment', 'Parkinsons Care']
   },
   {
     id: 'oncology',
