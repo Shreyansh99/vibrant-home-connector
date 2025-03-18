@@ -16,7 +16,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 220 20% 16%;
 
-    --primary: 220 85% 57%; /* Vibrant blue */
+    --primary: 220 85% 47%; /* Deeper blue */
     --primary-foreground: 210 40% 98%;
 
     --secondary: 220 16% 96%;
@@ -25,7 +25,7 @@
     --muted: 220 16% 92%;
     --muted-foreground: 220 10% 56%;
 
-    --accent: 220 85% 57%;
+    --accent: 220 85% 47%; /* Matching accent with primary */
     --accent-foreground: 210 40% 98%;
 
     --destructive: 0 84% 60%;
@@ -33,7 +33,7 @@
 
     --border: 214 32% 90%;
     --input: 214 32% 90%;
-    --ring: 220 85% 57%;
+    --ring: 220 85% 47%;
 
     --radius: 0.75rem;
 
@@ -118,6 +118,11 @@ html {
   
   .section-subheading {
     @apply text-lg md:text-xl text-muted-foreground mt-4 max-w-3xl;
+  }
+  
+  /* New blue-themed glass effect */
+  .blue-glass {
+    @apply backdrop-blur-lg bg-primary/10 border border-primary/20 shadow-lg;
   }
 }
 

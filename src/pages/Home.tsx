@@ -29,7 +29,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#E0F7FF] to-white">
+    <div className="min-h-screen bg-gradient-to-b from-primary/5 to-white">
       <Navbar />
       <Hero />
       <WhyUs />
